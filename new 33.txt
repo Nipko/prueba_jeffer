@@ -1,0 +1,131 @@
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<img width="64" height="55" src="assets/img/logo-blanco_tuya.png" style="margin: 8px">
+			<button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed"
+				data-target="#navnav" data-toggle="collapse" type="button"><span class="sr-only">Toggle
+					navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span></button>
+		</div>
+		<!--<div class="navbar-collapse collapse" id="navnav">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+						href="#" role="button"><i class="icon-user"></i> test@test.com <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a (click)="logOut()">Salir</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>-->
+	</div>
+</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container-padding">
+					<h1 class="text-center">GestiÃ³n de las reglas para el motor</h1>
+					<p class="lead text-center">De manera fÃ¡cil e intuitiva puedes controlar tu motor de reglas.</p>
+					<div class="well pgui-login">
+            <div *ngIf="errorMessage">
+              <div class="alert alert-danger" role="alert">
+                {{errorMessage}}
+              </div>
+            </div>
+						<p class="text-center"><img alt="User avatar" class="pgui-login-avatar" src="assets/img/login_avatar.png"></p>
+						<form (ngSubmit)="onSubmit()" ngNativeValidate>
+								<div class="form-group">
+									<div class="row">
+										<div [className]="'fixclass-col'" [ngClass]="{
+											'form-group col-sm-12' :(arrayObs[LST.USERNAME] | async),
+											'form-group col-sm-12 has-error' : !(arrayObs[LST.USERNAME] | async)
+											}">
+											<label class="control-label" data-column="Email" for="">Email <span class="required-mark">*</span></label>
+										<input
+		                  [(ngModel)]="user.email"
+		                  name="email"
+		                  type="email"
+		                  class="form-control"
+		                  id="email"
+		                  placeholder="Ingrese su email"
+											(input)="inputValidEmpty( $event.target.value , LST.USERNAME )">
+											<span *ngIf="!(arrayObs[LST.USERNAME] | async)" class="help-block">El email es obligatorio.</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="row">
+								<div [className]="'fixclass-col'" [ngClass]="{
+										'form-group col-sm-12' :(arrayObs[LST.PASSWORD] | async),
+										'form-group col-sm-12 has-error' : !(arrayObs[LST.PASSWORD] | async)
+								 }">
+								<label class="control-label" data-column="Password" for="">Password <span class="required-mark">*</span></label>
+                <input
+                  [(ngModel)]="user.password"
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Ingrese el password"
+									(input)="inputValidEmpty( $event.target.value , LST.PASSWORD )">
+									<span *ngIf="!(arrayObs[LST.PASSWORD] | async)" class="help-block">El password es obligatorio.</span>
+								</div>
+							</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<!--<label>
+                  <input id="saveidentity" name="saveidentity" type="checkbox"> Remember me</label>-->
+								</div>
+							</div>
+							<div class="form-group text-center">
+								<div class="btn-group">
+									<button class="btn btn-primary" type="submit">Log In</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!--<div class="row">
+  <div class="col-md-4">
+    <h1>Log in</h1>
+    <hr><br>
+    <div *ngIf="errorMessage">
+      <div class="alert alert-danger" role="alert">
+        {{errorMessage}}
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" ngNativeValidate>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          [(ngModel)]="user.email"
+          name="email"
+          type="email"
+          required
+          class="form-control"
+          id="email"
+          placeholder="enter your email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          [(ngModel)]="user.password"
+          name="password"
+          type="password"
+          required
+          class="form-control"
+          id="password"
+          placeholder="enter a password">
+      </div>
+      <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+  </div>
+</div>-->
